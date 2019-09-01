@@ -2,11 +2,11 @@ from flask import Flask, Request
 import random
 
 # print a nice greeting.
-def say_hello(username = "World"):
+def say_hello(username):
     return '<p>Hello %s!</p>\n' % username
 
 # some cute pictures
-def cute_hello(username = "World"):
+def cute_hello(username = "Duoduo"):
     squirrels = [
         "https://media.npr.org/assets/img/2017/04/25/istock-115796521-fcf434f36d3d0865301cdcb9c996cfd80578ca99-s800-c85.jpg",
         "https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2019/07/931/524/creepy-cat.jpg",
@@ -18,7 +18,7 @@ def cute_hello(username = "World"):
     header_text = '''
         <html>\n<head> <title>Duoduo's Home Page</title> </head>\n<body>'''
     instructions = '''
-        <p><em>Hint</em>: This is a page to show Christopher's cute animals.</p>\n<img src="{}"/>'''.format(squirrels[random.randint(0,len(squirrels) - 1)])
+        <p><em>Hint</em>: This is a page to show {}'s cute animals.</p>\n<img src="{}"/>'''.format(username, squirrels[random.randint(0,len(squirrels) - 1)])
     home_link = '<p><a href="/">Back</a></p>\n'
     footer_text = '</body>\n</html>'
     return header_text + say_hello(username) + instructions + home_link + footer_text
